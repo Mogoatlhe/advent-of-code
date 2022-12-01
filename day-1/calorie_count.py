@@ -12,8 +12,10 @@ def populate_largets(current=0):
                 for index, value in enumerate(largest):
                     if current > value:
                         largest[index] = current
+                        largest.sort()
                         break
                 current = 0
+    print(largest)
 
 
 def top_three_elves_total():
