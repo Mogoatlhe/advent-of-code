@@ -3,9 +3,23 @@ def get_longest_string_index(arr):
     return arr.index(longest_string)
 
 
-def compare_items(elves):
-    for item in elves[0]:
-        if item in elves[1] and item in elves[2]:
+def compare_items(elves, index):
+
+    elf_1 = ""
+    elf_2 = ""
+
+    if index == 0:
+        elf_1 = elves[1]
+        elf_2 = elves[2]
+    if index == 1:
+        elf_1 = elves[0]
+        elf_2 = elves[2]
+    if index == 2:
+        elf_1 = elves[0]
+        elf_2 = elves[1]
+
+    for item in elves[index]:
+        if item in elf_1 and item in elf_2:
             return item
 
 
@@ -19,7 +33,7 @@ def get_item_score(item):
     return ord(item) - LOWER_STARING
 
 
-with open("test.txt") as file:
+with open("input.txt") as file:
     sum = 0
     elves = []
     for line in file:
@@ -28,8 +42,8 @@ with open("test.txt") as file:
 
         if len(elves) == 3:
             index = get_longest_string_index(elves)
-            # matching_item = compare_items(elves)
+            matching_item = compare_items(elves, index)
             elves = []
-            # sum += get_item_score(matching_item)
+            sum += get_item_score(matching_item)
 
-# print(sum)
+print(sum)
