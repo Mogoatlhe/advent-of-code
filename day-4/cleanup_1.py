@@ -1,12 +1,15 @@
+def get_range_values(line):
+    pair = []
+
+    pair.append(line[:line.index("-"):1])
+    pair.append(line[line.index("-") + 1:line.index(","):1])
+    pair.append(line[line.index(",") + 1:line.rindex("-"):1])
+    pair.append(line[line.rindex("-") + 1:len(line) - 1:1])
+
+    return pair
+
+
 with open("input.txt") as file:
     for line in file:
-        elf_1_start = line[:line.index("-"):1]
-        elf_1_end = line[line.index("-") + 1:line.index(","):1]
-        elf_2_start = line[line.index(",") + 1:line.rindex("-"):1]
-        elf_2_end = line[line.rindex("-") + 1::1]
-        print(line)
-        print(elf_1_start)
-        print(elf_1_end)
-        print(elf_2_start)
-        print(elf_2_end)
+        print(get_range_values(line))
         break
