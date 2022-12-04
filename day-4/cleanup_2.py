@@ -10,13 +10,14 @@ def get_range_values(line):
 
 
 def is_overlap(pair):
-    for i in range(int(pair[0]), int(pair[1]) + 1):
-        if int(pair[2]) == i or int(pair[3]) == i:
-            return True
-
-    for i in range(int(pair[2]), int(pair[3]) + 1):
-        if int(pair[0]) == i or int(pair[1]) == i:
-            return True
+    if int(pair[0]) >= int(pair[2]) and int(pair[0]) <= int(pair[3]):
+        return True
+    if int(pair[1]) >= int(pair[2]) and int(pair[1]) <= int(pair[3]):
+        return True
+    if int(pair[2]) >= int(pair[0]) and int(pair[2]) <= int(pair[1]):
+        return True
+    if int(pair[3]) >= int(pair[0]) and int(pair[3]) <= int(pair[1]):
+        return True
 
     return False
 
