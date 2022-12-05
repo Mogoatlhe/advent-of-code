@@ -6,3 +6,5 @@ Advent of Code: Challenges
 
 - day 2:
   ![](./images/day-2-top-leaderboard.png)
+- day 3:
+  ![](./images/day-3-top-leaderboard.png)
