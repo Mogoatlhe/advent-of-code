@@ -8,3 +8,5 @@ Advent of Code: Challenges
   ![](./images/day-2-top-leaderboard.png)
 - day 3:
   ![](./images/day-3-top-leaderboard.png)
+- day 4:
+  ![](./images/day-4-top-leaderboard.png)
