@@ -9,15 +9,23 @@ int main () {
   string line = getFileContents();
   int index = 0;
   int floorLevel = 0;
-  
+  bool isFirstBase = true;
+  int firstBase = -99;
+
   while (line[index] == '(' || line[index] == ')'){
     if (line[index] == '(')
       floorLevel += 1;
     else floorLevel -= 1;
     index += 1;
+
+    if (floorLevel == -1 && isFirstBase){
+      firstBase = index;
+      isFirstBase = false;
+    }
   }
   
   cout << floorLevel << endl;
+  cout << firstBase << endl;
   
   return 0;
 }
@@ -27,7 +35,7 @@ string getFileContents(){
   ifstream file("input.txt");
 
   if (file.is_open()){
-    while(getline(file, line)){}
+    getline(file, line);
     file.close();
   }
 
