@@ -6,7 +6,18 @@ using namespace std;
 string getFileContents(void);
 
 int main () {
-  string line = getFileContents();  
+  string line = getFileContents();
+  int index = 0;
+  int floorLevel = 0;
+  
+  while (line[index] == '(' || line[index] == ')'){
+    if (line[index] == '(')
+      floorLevel += 1;
+    else floorLevel -= 1;
+    index += 1;
+  }
+  
+  cout << floorLevel << endl;
   
   return 0;
 }
