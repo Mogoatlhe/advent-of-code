@@ -42,6 +42,7 @@ func process_lines(lines [] string){
 }
 
 var visited = []string{}
+
 func get_down(y int, x int, lines[] string) int{
 	if y == len(lines) || x < 0 || x >= len(lines[0]) || slices.Contains(visited, fmt.Sprintf("%d%d", y,x)){
 		return 0
@@ -55,7 +56,6 @@ func get_down(y int, x int, lines[] string) int{
 		visited = append(visited, fmt.Sprintf("%d%d", (y - 1), x))
 		count += 1
 		count += get_down(y, x - 1, lines) + get_down(y, x + 1, lines)
-		// lines[y - 1] = lines[y - 1][:x] + "." + lines[y - 1][x + 1:]
 	} else if line[x] == '.'{
 		count = get_down(y, x, lines)
 	}
